@@ -27,13 +27,13 @@
                      /* TODO */
                    },
 
-            sort:  function(/* Field list */) {
+            order: function(/* Field list */) {
                      /* TODO */
                    }
           },
 
-    // Criteria helpers
-    _eq:     function(v) {
+    // Criteria qualifiers
+    strong:  function(v) {
                return function(fieldValue) {
                  return fieldValue === v;
                };
@@ -111,26 +111,33 @@
                };
              },
 
-    // Sorting helpers
-    _sortBy: function(field, dir) {
-               var out = {};
-               out[field] = dir;
-
-               return out;
-             },
-
+    // Sorting modifiers TODO
     asc:     function(field) {
-               return this._sortBy(field, 1);
+               return function(a, b) {
+                 // Type safe (rather than 'a - b')
+                 return a === b ? 0 : a < b ? -1 : 1;
+               };
              },
 
     desc:    function(field) {
-               return this._sortBy(field, -1);
+               return function(a, b) { return selecta.asc(b, a); };
              },
 
     shuffle: function(field) {
                /* TODO */
+               // Randomise is easy; not yet sure how to implement a
+               // functional Fisher-Yates in the context of Array.sort,
+               // though...
              }
   });
 
-  root.selecta = selecta;
+  // Let's do this!
+  if (root.hasOwnProperty('selecta')) {
+    throw new Error('Cannot instantiate jsSelecta: Namespace collision.');
+  } else {
+    root.selecta = selecta;
+
+    /* TODO */
+    // AMD stuff...
+  }
 })(window);

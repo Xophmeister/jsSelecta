@@ -5,8 +5,8 @@ objects, to allow you to query them using a straightforward syntax.
 ## Usage
 The `selecta` function takes one parameter: namely, an array of objects
 (e.g., JSON data). It returns an augmented JavaScript array, so normal
-array properties (e.g., `length`, `map()`, etc.) still apply; the only
-exception is `sort`, which has been replaced with a custom method.
+array properties (e.g., `length`, `map()`, etc.) still apply; the
+extensions are documented herein.
 
 ## Querying Data
 jsSelecta augments the data array with a `where` method, which takes a
@@ -15,7 +15,7 @@ filtered augmented array. That is, if we have:
 
     selecta(data).where(a, b, c);
 
-...our query will filter by `a || b || c`; where `a`, `b` and `c` are
+...our query will filter by `a OR b OR c`; where `a`, `b` and `c` are
 plain objects that define *conjunctive* criteria. For example, if we
 have:
 
@@ -76,9 +76,9 @@ Boolean denoting the success of the match. For example:
     selecta(data).where({someField: isType('Array')});
 
 ## Sorting Data
-As mentioned, `Array.sort()` (but not `Array.prototype.sort()`) is
-overridden by jsSelecta. The new `sort` function sorts based upon the
-arguments, which denote field names, in ascending order. Modifiers are
+As well as `Array.prototype.sort()`, jsSelecta defines a new sorting
+method called `order`. This function sorts based upon its arguments,
+which denote field names, in (by default) ascending order. Modifiers are
 available to change the sort order, by field:
 
     selecta(data).where(someCriteria).sort(selecta.desc('age',
@@ -95,4 +95,7 @@ explicitly.
 Sort descending.
 
 ### `shuffle(field)`
-Uniformly shuffle field values using the Fisher-Yates algorithm.
+Uniformly shuffle field values using the Fisher-Yates algorithm. (TODO)
+
+### Custom Ordering
+Custom orders can also be easily defined: (TODO) 
