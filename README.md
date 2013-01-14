@@ -85,8 +85,8 @@ method called `order`. This function sorts based upon its arguments,
 which denote field names, in (by default) ascending order. Modifiers are
 available to change the sort order, by field:
 
-    selecta(data).where(someCriteria).sort(selecta.desc('age'),
-                                           'surname');
+    selecta(data).where(someCriteria).order(selecta.desc('age'),
+                                            'surname');
 
 The following modifiers (which are properties of the `selecta` object)
 are available:
@@ -98,7 +98,7 @@ explicitly.
 ### `desc(field)`
 Sort descending.
 
-### `shuffle(field)` *TODO*
+### *TODO* `shuffle(field)`
 Uniformly shuffle field values using the Fisher-Yates algorithm.
 
 ### Custom Ordering
