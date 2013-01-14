@@ -98,8 +98,33 @@ explicitly.
 ### `desc(field)`
 Sort descending.
 
-### `shuffle(field)`
-Uniformly shuffle field values using the Fisher-Yates algorithm. (TODO)
+### `shuffle(field)` *TODO*
+Uniformly shuffle field values using the Fisher-Yates algorithm.
 
 ### Custom Ordering
-Custom orders can also be easily defined: (TODO) 
+Custom orders can also be easily defined: They are just functions that
+take two [?...] arguments -- consecutive values of the field, for
+comparison, say `a` and `b` -- and return the following:
+
+* `0`, if the values are equal;
+* `1` (or any positive number), if `a > b`;
+* `-1` (or any negative number), if `a < b`.
+
+For example:
+
+    var ascNumeric = function(field) {
+      return function(a, b) {
+        return a[field] - b[field];
+      };
+    };
+
+    selecta(data).order(ascNumeric('someField'));
+
+## Other Methods
+The `selecta` object also defines the following miscellaneous methods:
+
+### `rewind()`
+This is a synonym for `Array.reverse()`, it has no real value beyond
+providing the ability to call:
+
+    selecta(data).rewind();

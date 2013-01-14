@@ -23,13 +23,18 @@
 
   extend(selecta, {
     _obj: {
-            where: function(/* Criteria */) {
-                     /* TODO */
-                   },
+            where:  function(/* Criteria */) {
+                      // TODO
+                    },
 
-            order: function(/* Field list */) {
-                     /* TODO */
-                   }
+            order:  function(/* Field list */) {
+                      // TODO
+                    },
+
+            // :)
+            rewind: function() {
+                      // TODO
+                    }
           },
 
     // Criteria qualifiers
@@ -111,20 +116,22 @@
                };
              },
 
-    // Sorting modifiers TODO
+    // Sorting modifiers
     asc:     function(field) {
                return function(a, b) {
-                 // Type safe (rather than 'a - b')
-                 return a === b ? 0 : a < b ? -1 : 1;
+                 // Type safe (i.e., rather than 'a - b')
+                 return a[field] === b[field] ? 0 : a[field] < b[field] ? -1 : 1;
                };
              },
 
     desc:    function(field) {
-               return function(a, b) { return selecta.asc(b, a); };
+               return function(a, b) {
+                 return a[field] === b[field] ? 0 : a[field] < b[field] ? 1 : -1;
+               };
              },
 
     shuffle: function(field) {
-               /* TODO */
+               // TODO
                // Randomise is easy; not yet sure how to implement a
                // functional Fisher-Yates in the context of Array.sort,
                // though...
@@ -137,7 +144,7 @@
   } else {
     root.selecta = selecta;
 
-    /* TODO */
+    // TODO
     // AMD stuff...
   }
 })(window);
