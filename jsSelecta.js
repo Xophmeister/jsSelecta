@@ -31,10 +31,7 @@
                       // TODO
                     },
 
-            // :)
-            rewind: function() {
-                      // TODO
-                    }
+            rewind: this.reverse // ;)
           },
 
     // Criteria qualifiers
@@ -98,7 +95,7 @@
                return function(fieldValue) {
                  var matched = false;
 
-                 // Use Array.reduce instead?
+                 // Use Array.reduce instead?...
                  for (var i = 0; i < vals.length; ++i) {
                    if (fieldValue === vals[i]) {
                      matched = true;
