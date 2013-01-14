@@ -42,6 +42,10 @@ fidelity. For example:
 The following qualifiers (which are properties of the `selecta` object)
 are available:
 
+### `strong(value)`
+Matches on type safe equality; this is the default, so does not need to
+be specified explicitly.
+
 ### `weak(value)`
 Matches on non type safe equality (i.e., reverts to `==`).
 
