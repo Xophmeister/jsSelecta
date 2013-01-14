@@ -24,45 +24,91 @@
   extend(selecta, {
     _obj: {
             where: function(/* Criteria */) {
-
+                     /* TODO */
                    },
 
             sort:  function(/* Field list */) {
-                     
+                     /* TODO */
                    }
           },
 
     // Criteria helpers
-    _eq:     function() {
-
+    _eq:     function(v) {
+               return function(fieldValue) {
+                 return fieldValue === v;
+               };
              },
 
     weak:    function(v) {
-
+               return function(fieldValue) {
+                 return fieldValue == v;
+               };
              },
 
     not:     function(v) {
-
+               return function(fieldValue) {
+                 return fieldValue !== v;
+               };
              },
 
-    between: function(a, b) {
+    between: function(a, b /* strict */) {
+               var strict = arguments.length == 3 ? arguments[2] : true;
 
+               return function(fieldValue) {
+                 if (strict) {
+                   return (fieldValue > a) && (fieldValue < b);
+                 } else {
+                   return (fieldValue >= a) && (fieldValue <= b);
+                 }
+               };
              },
 
-    greater: function(v, strict) {
+    greater: function(v /* strict */) {
+               var strict = arguments.length == 2 ? arguments[2] : true;
 
+               return function(fieldValue) {
+                 if (strict) {
+                   return fieldValue > v;
+                 } else {
+                   return fieldValue >= v;
+                 }
+               };
              },
 
-    lesser:  function(v, strict) {
+    lesser:  function(v /* strict */) {
+               var strict = arguments.length == 2 ? arguments[2] : true;
 
+               return function(fieldValue) {
+                 if (strict) {
+                   return fieldValue < v;
+                 } else {
+                   return fieldValue <= v;
+                 }
+               };
              },
 
-    any:     function(v) {
+    any:     function(/* Arguments */) {
+               var vals = Array.prototype.slice.call(arguments);
 
+               return function(fieldValue) {
+                 var matched = false;
+
+                 // Use Array.reduce instead?
+                 for (var i = 0; i < vals.length; ++i) {
+                   if (fieldValue === vals[i]) {
+                     matched = true;
+                     break;
+                   }
+                 }
+
+                 return matched;
+               };
              },
 
     regex:   function(re) {
-
+               return function(fieldValue) {
+                 return re.test(fieldValue);
+               };
              },
 
     // Sorting helpers
@@ -82,7 +128,7 @@
              },
 
     shuffle: function(field) {
-
+               /* TODO */
              }
   });
 
