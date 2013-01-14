@@ -117,13 +117,17 @@
     asc:     function(field) {
                return function(a, b) {
                  // Type safe (i.e., rather than 'a - b')
-                 return a[field] === b[field] ? 0 : a[field] < b[field] ? -1 : 1;
+                 return a[field] === b[field] ?  0 :
+                        a[field] < b[field]   ? -1 :
+                                                 1;
                };
              },
 
     desc:    function(field) {
                return function(a, b) {
-                 return a[field] === b[field] ? 0 : a[field] < b[field] ? 1 : -1;
+                 return a[field] === b[field] ?  0 :
+                        a[field] < b[field]   ?  1 :
+                                                -1;
                };
              },
 
