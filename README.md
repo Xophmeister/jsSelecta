@@ -120,10 +120,17 @@ For example:
 
     selecta(data).order(ascNumeric('someField'));
 
-## Other Methods
-The `selecta` object also defines the following miscellaneous methods:
+## Miscellaneous
+The jsSelecta also provides the following functionality:
 
-### `rewind()`
+### *TODO* Asynchronous Module Definition
+AMD loading as a CommonJS/RequireJS module.
+
+### *TODO* Environmental Independence
+Equivalent functionality in both the browser and node.js.
+(TODO NPM package)
+
+### `selecta.rewind()`
 This is a synonym for `Array.reverse()`, it has no real value beyond
 providing the ability to call:
 
