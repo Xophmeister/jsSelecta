@@ -49,8 +49,8 @@ Matches on non type safe equality (i.e., reverts to `==`).
 Matches against the negation.
 
 ### `between(a, b, [strict = true])`
-Matches values between `a` and `b`, exclusive. If `strict` is false, the
-we perform an inclusive match.
+Matches values between `a` and `b`, exclusive. If `strict` is false,
+then we perform an inclusive match.
 
 ### `greater(a, [strict = true])`, `lesser(a, [strict = true])`
 Matches values greater than, or less than `a`, respectively. If `strict`
@@ -76,10 +76,10 @@ Boolean denoting the success of the match. For example:
     selecta(data).where({someField: isType('Array')});
 
 ## Sorting Data
-As mentioned, `Array.prototype.sort()` is overridden by jsSelecta. The
-new `sort` function sorts based upon the arguments, which denote field
-names, in ascending order. Modifiers are available to change the sort
-order, by field:
+As mentioned, `Array.sort()` (but not `Array.prototype.sort()`) is
+overridden by jsSelecta. The new `sort` function sorts based upon the
+arguments, which denote field names, in ascending order. Modifiers are
+available to change the sort order, by field:
 
     selecta(data).where(someCriteria).sort(selecta.desc('age',
                                            'surname');
