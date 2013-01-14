@@ -131,7 +131,7 @@ Equivalent functionality in both the browser and node.js.
 (TODO NPM package)
 
 ### `selecta.rewind()`
-This is a synonym for `Array.reverse()`, it has no real value beyond
-providing the ability to call:
+This is a (shallow copying) synonym for `Array.reverse()`, it has no
+real value beyond providing the ability to call:
 
     selecta(data).rewind();

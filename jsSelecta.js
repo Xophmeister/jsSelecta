@@ -31,7 +31,9 @@
                       // TODO
                     },
 
-            rewind: this.reverse // ;)
+            rewind: function() { // ;)
+                      return selecta(this.slice(0).reverse());
+                    }
           },
 
     // Criteria qualifiers
@@ -117,17 +119,17 @@
     asc:     function(field) {
                return function(a, b) {
                  // Type safe (i.e., rather than 'a - b')
-                 return a[field] === b[field] ?  0 :
-                        a[field] < b[field]   ? -1 :
-                                                 1;
+                 return a[field] < b[field] ? -1:
+                        a[field] > b[field] ?  1:
+                                               0;
                };
              },
 
     desc:    function(field) {
                return function(a, b) {
-                 return a[field] === b[field] ?  0 :
-                        a[field] < b[field]   ?  1 :
-                                                -1;
+                 return a[field] < b[field] ?  1:
+                        a[field] > b[field] ? -1:
+                                               0;
                };
              },
 
@@ -139,7 +141,7 @@
              }
   });
 
-  // Let's do this!
+  // Enter selecta!
   if (root.hasOwnProperty('selecta')) {
     throw new Error('Cannot instantiate jsSelecta: Namespace collision.');
   } else {
