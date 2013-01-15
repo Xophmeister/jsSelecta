@@ -124,12 +124,13 @@ For example:
 ## Miscellaneous
 The jsSelecta also provides the following functionality:
 
-### *TODO* Asynchronous Module Definition
+### Asynchronous Module Definition
 AMD loading as a CommonJS/RequireJS module.
 
-### *TODO* Environmental Independence
+### Environmental Independence
 Equivalent functionality in both the browser and node.js.
-(TODO NPM package)
+
+*TODO* NPM package
 
 ### `selecta.rewind()`
 This is a (shallow copying) synonym for `Array.reverse()`, it has no
