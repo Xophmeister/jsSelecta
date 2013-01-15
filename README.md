@@ -28,7 +28,8 @@ have:
 `John Doe` and the `age` field equals `25`. (Note that the type safe
 equality operator (`===`) is used, unless specified otherwise.)
        
-We can combine these arbitrarily. So, for example, if we want to search
+We can combine these arbitrarily and jsSelecta will assess the logic
+using short-circuit evaluation. So, for example, if we want to search
 for all males who are 25 and all females who are 22, we might write:
 
     selecta(data).where({gender: 'male', age: 25},
