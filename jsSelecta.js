@@ -145,12 +145,17 @@
   if (root.hasOwnProperty('selecta')) {
     throw new Error('Cannot instantiate jsSelecta: Namespace collision.');
   } else {
+    // Instantiate in global namespace
     root.selecta = selecta;
 
-    // TODO
-    // AMD stuff...
+    // Setup AMD
+    if (root.hasOwnProperty('define')) {
+      root.define('jsSelecta', null, function() { return selecta; });
+    }
 
-    // TODO
-    // node.js stuff...
+    // Setup node.js Module
+    if (root.hasOwnProperty('module')) {
+      root.module.exports = selecta;
+    }
   }
 })((function() { return this; })()); // i.e., Global object
