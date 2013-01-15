@@ -149,5 +149,8 @@
 
     // TODO
     // AMD stuff...
+
+    // TODO
+    // node.js stuff...
   }
-})(window);
+})((function() { return this; })()); // i.e., Global object
