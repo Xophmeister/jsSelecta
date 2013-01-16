@@ -132,6 +132,11 @@ Equivalent functionality in both the browser and node.js.
 
 *TODO* NPM package
 
+### Unit Testing
+Unit test harnesses available for browser (inline and AMD based) and
+node.js. The same tests are done in each environment using a quick and
+dirty tester.
+
 ### `selecta.rewind()`
 This is a (shallow copying) synonym for `Array.reverse()`, it has no
 real value beyond providing the ability to call:
