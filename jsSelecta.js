@@ -142,20 +142,21 @@
   });
 
   // Enter selecta!
-  if (root.hasOwnProperty('selecta')) {
-    throw new Error('Cannot instantiate jsSelecta: Namespace collision.');
+  if (root.hasOwnProperty('module')) {
+    // Return node.js Module
+    module.exports = selecta;
   } else {
-    // Instantiate in global namespace
-    root.selecta = selecta;
-
-    // Setup AMD
-    if (root.hasOwnProperty('define')) {
-      root.define('jsSelecta', null, function() { return selecta; });
+    // Otherwise instantiate in global namespace for browser
+    if (root.hasOwnProperty('selecta')) {
+      throw new Error('Cannot instantiate jsSelecta: Namespace collision.');
+    } else {
+      root.selecta = selecta;
     }
 
-    // Setup node.js Module
-    if (root.hasOwnProperty('module')) {
-      root.module.exports = selecta;
+    // Setup AMD
+    // (Experimental)
+    if (root.hasOwnProperty('define')) {
+      define('jsSelecta', [], function() { return selecta; });
     }
   }
 })((function() { return this; })()); // i.e., Global object
