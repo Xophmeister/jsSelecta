@@ -133,9 +133,9 @@ Equivalent functionality in both the browser and node.js.
 *TODO* NPM package
 
 ### Unit Testing
-Unit test harnesses available for the browser (inline and AMD based) and
-node.js. The same tests are done in each environment using a quick and
-dirty comparator: Nothing fancy!
+Unit test harnesses are available for the browser (inline and AMD-based)
+and node.js. The same tests are done in each environment using a quick
+and dirty comparator: Nothing fancy!
 
 Note that the browser-based testers use jQuery. This is just for the
 sake of DOM manipulation (i.e., updating the view) and, in the case of
