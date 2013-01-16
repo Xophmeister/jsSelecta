@@ -1,0 +1,1 @@
+var selecta = require('../jsSelecta');
