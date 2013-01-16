@@ -29,8 +29,8 @@ have:
 equality operator (`===`) is used, unless specified otherwise.)
        
 We can combine these arbitrarily and jsSelecta will assess the logic
-using short-circuit evaluation. So, for example, if we want to search
-for all males who are 25 and all females who are 22, we might write:
+using short-circuit evaluation. So, for example, if we want to return
+all males who are 25 and all females who are 22, we might write:
 
     selecta(data).where({gender: 'male', age: 25},
                         {gender: 'female', age: 22});
@@ -122,7 +122,7 @@ For example:
     selecta(data).order(ascNumeric('someField'));
 
 ## Miscellaneous
-The jsSelecta also provides the following functionality:
+jsSelecta also provides the following functionality:
 
 ### Asynchronous Module Definition
 AMD loading as a CommonJS/RequireJS module.
