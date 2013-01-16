@@ -62,7 +62,7 @@
               j, m = tests[i].transform.length;
 
           // Perform transformations
-          for (var j = 0; j < m; ++j) {
+          for (j = 0; j < m; ++j) {
             output = output[tests[i].transform[j].fn].apply(null, tests[i].transform[j].args);
           }
 
