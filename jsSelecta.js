@@ -142,10 +142,10 @@
   });
 
   // Enter selecta!
-  if (typeof module !== undefined && module.exports) {
+  if (typeof module !== 'undefined' && module.exports) {
     // CommonJS Module (e.g., for node.js)
     module.exports = selecta;
-  } else if (typeof define !== undefined && define.amd) {
+  } else if (typeof define !== 'undefined' && define.amd) {
     // AMD Module (e.g., for RequireJS)
     define('jsSelecta', [], function() { return selecta; });
   } else {
