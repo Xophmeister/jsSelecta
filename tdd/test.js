@@ -83,9 +83,10 @@
     // Otherwise instantiate in global namespace
     if (root.hasOwnProperty('test')) {
       throw new Error('Cannot instantiate unit tester: Namespace collision.');
+    } else if (!root.hasOwnProperty('selecta')) {
+      throw new Error('Cannot instantiate unit tester: Dependencies not available.');
     } else {
-      // TODO
-      // selecta is not available (??), so this fails in browser
+      var selecta = root.selecta;
       root.test = test;
     }
   }
