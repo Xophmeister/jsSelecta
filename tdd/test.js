@@ -78,7 +78,11 @@
     module.exports = test;
   } else if (typeof define !== 'undefined' && define.amd) {
     // AMD Module (e.g., for RequireJS)
-    define('test', ['../jsSelecta'], function() { return test; });
+    var selecta;
+    define(['../jsSelecta'], function(jsSelecta) {
+      selecta = jsSelecta;
+      return test;
+    });
   } else {
     // Otherwise instantiate in global namespace
     if (root.hasOwnProperty('test')) {

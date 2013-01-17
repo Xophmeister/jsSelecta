@@ -147,7 +147,7 @@
     module.exports = selecta;
   } else if (typeof define !== 'undefined' && define.amd) {
     // AMD Module (e.g., for RequireJS)
-    define('jsSelecta', [], function() { return selecta; });
+    define(function() { return selecta; });
   } else {
     // Otherwise instantiate in global namespace
     if (root.hasOwnProperty('selecta')) {
