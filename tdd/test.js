@@ -72,11 +72,11 @@
       };
 
   // Instantiate
-  if (typeof module !== undefined && module.exports) {
+  if (typeof module !== 'undefined' && module.exports) {
     // CommonJS Module (e.g., for node.js)
     var selecta = require('../jsSelecta');
     module.exports = test;
-  } else if (typeof define !== undefined && define.amd) {
+  } else if (typeof define !== 'undefined' && define.amd) {
     // AMD Module (e.g., for RequireJS)
     define('test', ['jsSelecta'], function() { return test; });
   } else {
@@ -84,6 +84,8 @@
     if (root.hasOwnProperty('test')) {
       throw new Error('Cannot instantiate unit tester: Namespace collision.');
     } else {
+      // TODO
+      // selecta is not available (??), so this fails in browser
       root.test = test;
     }
   }
