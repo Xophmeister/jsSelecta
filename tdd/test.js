@@ -23,7 +23,7 @@
 
 */
 
-(function(root) {
+(function(root, undefined) {
   var contains = function(a, b) {
         var passed = true;
 
@@ -72,11 +72,11 @@
       };
 
   // Instantiate
-  if (typeof module !== 'undefined' && module.exports) {
+  if (typeof module !== undefined && module.exports) {
     // CommonJS Module (e.g., for node.js)
     var selecta = require('../jsSelecta');
     module.exports = test;
-  } else if (typeof define !== 'undefined' && define.amd) {
+  } else if (typeof define !== undefined && define.amd) {
     // AMD Module (e.g., for RequireJS)
     define('test', ['jsSelecta'], function() { return test; });
   } else {
@@ -87,4 +87,4 @@
       root.test = test;
     }
   }
-})((function() { return this; } )());
+})(this);
