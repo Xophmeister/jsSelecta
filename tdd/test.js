@@ -63,7 +63,7 @@
 
           // Perform transformations
           for (j = 0; j < m; ++j) {
-            output = output[tests[i].transform[j].fn].apply(null, tests[i].transform[j].args);
+            output = output[tests[i].transform[j].fn].apply(output, tests[i].transform[j].args);
           }
 
           // Callback with comparison result
