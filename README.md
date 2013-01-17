@@ -139,8 +139,8 @@ and node.js. The same tests are done in each environment using a quick
 and dirty comparator: Nothing fancy!
 
 Note that the browser-based testers use jQuery. This is just for the
-sake of DOM manipulation (i.e., updating the view) and, in the case of
-the inline version, loading the tests from a JSON file.
+sake of DOM manipulation (i.e., updating the view) and loading the test
+definitions from a JSON file.
 
 ### `selecta.rewind()`
 This is a (shallow copying) synonym for `Array.reverse()`, it has no
