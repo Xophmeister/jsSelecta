@@ -72,20 +72,19 @@
       };
 
   // Instantiate
-  if (root.hasOwnProperty('module')) {
-    // Return node.js Module
+  if (typeof module !== 'undefined' && module.exports) {
+    // CommonJS Module (e.g., for node.js)
+    var selecta = require('../jsSelecta');
     module.exports = test;
+  } else if (typeof define !== 'undefined' && define.amd) {
+    // AMD Module (e.g., for RequireJS)
+    define('test', ['jsSelecta'], function() { return test; });
   } else {
-    // Otherwise instantiate in global namespace for browser
+    // Otherwise instantiate in global namespace
     if (root.hasOwnProperty('test')) {
       throw new Error('Cannot instantiate unit tester: Namespace collision.');
     } else {
       root.test = test;
-    }
-
-    // Setup AMD
-    if (root.hasOwnProperty('define')) {
-      define('test', ['jsSelecta'], function() { return test; });
     }
   }
 })((function() { return this; } )());

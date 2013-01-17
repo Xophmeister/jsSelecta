@@ -124,13 +124,14 @@ For example:
 ## Miscellaneous
 jsSelecta also provides the following functionality:
 
-### Asynchronous Module Definition
-AMD loading as a CommonJS/RequireJS module.
+### Environmental Independence; Modularity
+Feature detection for module instantiation:
 
-### Environmental Independence
-Equivalent functionality in both the browser and node.js.
+* CommonJS module for node.js, etc.
+* Asynchronous Module Definition (AMD) for RequireJS, etc.
+* Otherwise instantiates into global namespace (e.g., for browsers).
 
-*TODO* NPM package
+### *TODO* NPM Package
 
 ### Unit Testing
 Unit test harnesses are available for the browser (inline and AMD-based)
