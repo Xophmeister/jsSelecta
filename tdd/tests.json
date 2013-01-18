@@ -276,7 +276,7 @@
                    {"a": "xYz789"}
                  ],
     "transform": [
-                   {"fn": "where", "args": [{"a": {"fn": "regexp", "args": [{"re": "/^\\w{3}\\d{3}$/i"}]}}]}
+                   {"fn": "where", "args": [{"a": {"fn": "regexp", "args": [{"re": "^\\w{3}\\d{3}$", "flags": "i"}]}}]}
                  ],
     "expected":  [
                    {"a": "abc123"},
