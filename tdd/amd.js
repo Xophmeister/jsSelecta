@@ -4,7 +4,7 @@ require(['jquery', 'test'], function ($, test) {
 
     $.getJSON('./tests.json', function(tests) {
       test(tests, function(id, passed) {
-        var li = $('<li />').text('Test ' + id + ': ' + (passed ? 'Passed' : 'Failed'));
+        var li = $('<li />').html('Test ' + id + ': <span class="' + (passed ? 'pass">Passed' : 'fail">Failed') + '</span>');
         results.append(li);
       });
     });

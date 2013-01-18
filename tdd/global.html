@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Unit Tests</title>
+    <link type="text/css" href="test.css" rel="stylesheet" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/jsSelecta.js"></script>
     <script type="text/javascript" src="./test.js"></script>
@@ -11,7 +12,7 @@
 
         $.getJSON('./tests.json', function(tests) {
           test(tests, function(id, passed) {
-            var li = $('<li />').text('Test ' + id + ': ' + (passed ? 'Passed' : 'Failed'));
+            var li = $('<li />').html('Test ' + id + ': <span class="' + (passed ? 'pass">Passed' : 'fail">Failed') + '</span>');
             results.append(li);
           });
         });

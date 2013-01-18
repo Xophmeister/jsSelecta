@@ -41,7 +41,7 @@ fidelity. For example:
     selecta(data).where({age: selecta.between(18, 35)});
 
 The following qualifiers (which are properties of the `selecta` object)
-are available:
+are available and can be composed:
 
 ### `strong(value)`
 Matches on type safe equality; this is the default, so does not need to
@@ -132,14 +132,19 @@ Feature detection for module instantiation:
 * Otherwise instantiates into global namespace (e.g., for browsers).
 
 ### NPM Package
-Available on NPM:
+Available on [NPM](https://npmjs.org/package/selecta):
 
     node install selecta
 
+The alternative package name is because NPM expects lowercase names.
+Once installed into your project, you can include it using:
+
+    var selecta = require('selecta');
+
 ### Minified Source for Browsers
-A minified version of the source (jsSelecta.min.js) is created with a
+A minified version of the source (`jsSelecta.min.js`) is created with a
 pre-commit hook using UglifyJS. This is for the benefit of browser
-users, to reduce bandwidth use.
+users, to reduce bandwidth load.
 
 Note the pre-commit hook is defined as follows:
   
@@ -151,8 +156,8 @@ Note the pre-commit hook is defined as follows:
 
 ### Unit Testing
 Unit test harnesses are available for the browser (inline and AMD-based)
-and node.js. The same tests are done in each environment using a quick
-and dirty comparator: Nothing fancy!
+and node.js (CommonJS-based). The same tests are done in each
+environment using a quick and dirty comparator: Nothing fancy!
 
 Note that the browser-based testers use jQuery. This is just for the
 sake of DOM manipulation (i.e., updating the view) and loading the test
