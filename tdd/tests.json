@@ -131,21 +131,6 @@
                  ]
   },
   {
-    "id":        "Negation",
-    "input":     [
-                   {"a": 1},
-                   {"a": 2},
-                   {"a": 3}
-                 ],
-    "transform": [
-                   {"fn": "where", "args": [{"a": {"fn": "not", "args": [2]}}]}
-                 ],
-    "expected":  [
-                   {"a": 1},
-                   {"a": 3}
-                 ]
-  },
-  {
     "id":        "Between (Inclusive)",
     "input":     [
                    {"a": 5},
@@ -299,7 +284,22 @@
                  ]
   },
   {
-    "id":        "Composed Qualifiers (Not Between)",
+    "id":        "Simple Negation",
+    "input":     [
+                   {"a": 1},
+                   {"a": 2},
+                   {"a": 3}
+                 ],
+    "transform": [
+                   {"fn": "where", "args": [{"a": {"fn": "not", "args": [2]}}]}
+                 ],
+    "expected":  [
+                   {"a": 1},
+                   {"a": 3}
+                 ]
+  },
+  {
+    "id":        "Composed Negation",
     "input":     [
                    {"a": 5},
                    {"a": 1},

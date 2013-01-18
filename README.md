@@ -41,7 +41,7 @@ fidelity. For example:
     selecta(data).where({age: selecta.between(18, 35)});
 
 The following qualifiers (which are properties of the `selecta` object)
-are available and can be composed:
+are available:
 
 ### `strong(value)`
 Matches on type safe equality; this is the default, so does not need to
@@ -49,9 +49,6 @@ be specified explicitly.
 
 ### `weak(value)`
 Matches on non type safe equality (i.e., reverts to `==`).
-
-### `not(value)`
-Matches against the negation.
 
 ### `between(a, b, [strict = true])`
 Matches values between `a` and `b`, exclusive. If `strict` is false,
@@ -79,6 +76,17 @@ Boolean denoting the success of the match. For example:
     };
 
     selecta(data).where({someField: isType('Array')});
+
+### Negation
+Negation, using the `selecta.not`, qualifier works slightly differently:
+It will negate the qualifier function that is passed to it (defaulting
+to `selecta.strong` if not a function).
+
+For example:
+
+    selecta(data).where({criteria: selecta.not(someValue)});
+
+    selecta(data).where({criteria: selecta.not(selecta.someQualifier(args))});
 
 ## Sorting Data
 As well as `Array.prototype.sort()`, jsSelecta defines a new sorting
