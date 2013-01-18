@@ -134,8 +134,7 @@ Feature detection for module instantiation:
 ### NPM Package
 Available on NPM:
 
-    node install jsSelecta
-
+    node install selecta
 
 ### Unit Testing
 Unit test harnesses are available for the browser (inline and AMD-based)

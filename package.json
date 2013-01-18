@@ -1,5 +1,5 @@
 {
-  "name": "jsSelecta",
+  "name": "selecta",
   "version": "0.0.1",
   "description": "LINQ-like API for arrays of objects",
   "main": "./lib/jsSelecta.js",
