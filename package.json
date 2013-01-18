@@ -1,0 +1,21 @@
+{
+  "name": "jsSelecta",
+  "version": "0.0.1",
+  "description": "LINQ-like API for arrays of objects",
+  "main": "./lib/jsSelecta.js",
+  "scripts": {
+    "test": "node ./tdd/CommonJS.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Xophmeister/jsSelecta.git"
+  },
+  "keywords": [
+    "LINQ",
+    "query"
+  ],
+  "author": "Christopher Harrison",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "cf5781f6c23de3ce8ce85a24a68fc23e25c12ec1"
+}

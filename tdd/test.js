@@ -74,12 +74,12 @@
   // Instantiate
   if (typeof module !== 'undefined' && module.exports) {
     // CommonJS Module (e.g., for node.js)
-    var selecta = require('../jsSelecta');
+    var selecta = require('../lib/jsSelecta');
     module.exports = test;
   } else if (typeof define !== 'undefined' && define.amd) {
     // AMD Module (e.g., for RequireJS)
     var selecta;
-    define(['../jsSelecta'], function(jsSelecta) {
+    define(['../lib/jsSelecta'], function(jsSelecta) {
       selecta = jsSelecta;
       return test;
     });
