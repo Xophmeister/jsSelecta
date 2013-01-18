@@ -136,6 +136,19 @@ Available on NPM:
 
     node install selecta
 
+### Minified Source for Browsers
+A minified version of the source (jsSelecta.min.js) is created with a
+pre-commit hook using UglifyJS. This is for the benefit of browser
+users, to reduce bandwidth use.
+
+Note the pre-commit hook is defined as follows:
+  
+    #!/bin/sh
+    
+    LIB_DIR=$(git rev-parse --show-toplevel)/lib
+    uglifyjs $LIB_DIR/jsSelecta.js -o $LIB_DIR/jsSelecta.min.js
+    git add $LIB_DIR/jsSelecta.min.js
+
 ### Unit Testing
 Unit test harnesses are available for the browser (inline and AMD-based)
 and node.js. The same tests are done in each environment using a quick
