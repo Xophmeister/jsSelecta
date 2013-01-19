@@ -78,9 +78,10 @@ Boolean denoting the success of the match. For example:
     selecta(data).where({someField: isType('Array')});
 
 ### Negation
-Negation, using the `selecta.not`, qualifier works slightly differently:
-It will negate the qualifier function that is passed to it (defaulting
-to `selecta.strong` if not a function).
+Negation, using the `selecta.not` qualifier, works slightly differently,
+insofar as it will negate the qualifier function that is passed to it
+(defaulting to `selecta.strong` if not a function), rather than doing
+any comparisons of its own.
 
 For example:
 
@@ -140,9 +141,9 @@ Feature detection for module instantiation:
 * Otherwise instantiates into global namespace (e.g., for browsers).
 
 ### NPM Package
-Available on [NPM](https://npmjs.org/package/selecta):
+Available in the [NPM repository](https://npmjs.org/package/selecta):
 
-    node install selecta
+    npm install selecta
 
 The alternative package name is because NPM expects lowercase names.
 Once installed into your project, you can include it using:
