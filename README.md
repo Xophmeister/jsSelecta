@@ -67,15 +67,23 @@ Matches strings that pass the regular expression.
 ### Custom Qualifiers
 Custom qualifiers can also be easily defined: They are just functions
 that take one argument (the field value being tested) and return a
-Boolean denoting the success of the match. For example:
+Boolean denoting the success of the match. For type safety, these
+functions must be passed as the argument of the `WhereBuilder`
+constructor. For example:
 
+    // Plain custom qualifier
+    var isString = new selecta.WhereBuilder(function(fieldValue) {
+      return typeof fieldValue == 'string';
+    });
+
+    // Using a closure to parameterise a custom qualifier
     var isType = function(type) {
-      return function(fieldValue) {
+      return new selecta.WhereBuilder(function(fieldValue) {
         return Object.prototype.toString.call(fieldValue).match(/\[object (\w+)\])[1] === type;
-      }
+      });
     };
 
-    selecta(data).where({someField: isType('Array')});
+    selecta(data).where({someField: isType('Array'), anotherField: isString});
 
 ### Negation
 Negation, using the `selecta.not` qualifier, works slightly differently,
@@ -113,19 +121,21 @@ Uniformly shuffle field values using the Fisher-Yates algorithm.
 
 ### Custom Ordering
 Custom orders can also be easily defined: They are just functions that
-take two [?...] arguments -- consecutive values of the field, for
-comparison, say `a` and `b` -- and return the following:
+take two arguments -- consecutive values of the field, for comparison,
+say `a` and `b` -- and return the following:
 
 * `0`, if the values are equal;
 * `1` (or any positive number), if `a > b`;
 * `-1` (or any negative number), if `a < b`.
 
-For example:
+To be able to select the field, this function -- which must be passed as
+the argument of the `OrderBuilder` constructor, for type safety --
+should be defined within a larger closure. For example:
 
     var ascNumeric = function(field) {
-      return function(a, b) {
+      return new selecta.OrderBuilder(function(a, b) {
         return a[field] - b[field];
-      };
+      });
     };
 
     selecta(data).order(ascNumeric('someField'));
