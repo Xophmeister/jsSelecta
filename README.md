@@ -4,9 +4,9 @@ objects, to allow you to query them using a straightforward syntax.
 
 ## Usage
 The `selecta` function takes one parameter: namely, an array of objects
-(e.g., JSON data). It returns an augmented JavaScript array, so normal
-array properties (e.g., `length`, `map()`, etc.) still apply; the
-extensions are documented herein.
+(e.g., JSON data). It returns an augmented JavaScript array -- without
+mutating the original -- so normal array properties (e.g., `length`,
+`map()`, etc.) still apply; the extensions are documented herein.
 
 ## Querying Data
 jsSelecta augments the data array with a `where` method, which takes a
