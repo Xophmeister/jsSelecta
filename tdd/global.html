@@ -12,7 +12,7 @@
 
         $.getJSON('./tests.json', function(tests) {
           test(tests, function(id, passed) {
-            var li = $('<li />').html('Test ' + id + ': <span class="' + (passed ? 'pass">Passed' : 'fail">Failed') + '</span>');
+            var li = $('<li />').html('<span class="' + (passed ? 'pass">\u2714' : 'fail">\u2718') + '</span>Test ' + id);
             results.append(li);
           });
         });
@@ -20,7 +20,8 @@
     </script>
   </head>
   <body>
-    <p>jsSelecta Unit Tests (Global Namespace Module)</p>
+    <h1>jsSelecta Unit Tests</h1>
+    <h2>Global Namespace Module</h2>
     <ul id="results"></ul>
   </body>
 </html>
