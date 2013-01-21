@@ -86,10 +86,10 @@ constructor. For example:
     selecta(data).where({someField: isType('Array'), anotherField: isString});
 
 ### Negation
-Negation, using the `selecta.not` qualifier, works slightly differently,
+Negation, using the `selecta.not` qualifier, works slightly differently
 insofar as it will negate the qualifier function that is passed to it
-(defaulting to `selecta.strong` if not a function), rather than doing
-any comparisons of its own.
+(defaulting to `selecta.strong` if not a qualifier function), rather
+than doing any comparisons of its own.
 
 For example:
 
@@ -98,7 +98,7 @@ For example:
     selecta(data).where({criteria: selecta.not(selecta.someQualifier(args))});
 
 ## Sorting Data
-As well as `Array.prototype.sort()`, jsSelecta defines a new sorting
+As well as `Array.prototype.sort`, jsSelecta defines a new sorting
 method called `order`. This function sorts based upon its arguments,
 which denote field names, in (by default) ascending order. Modifiers are
 available to change the sort order, by field:
@@ -183,7 +183,7 @@ sake of DOM manipulation (i.e., updating the view) and loading the test
 definitions from a JSON file.
 
 ### `selecta.rewind()`
-This is a (shallow copying) synonym for `Array.reverse()`, it has no
+This is a (shallow copying) synonym for `Array.reverse`, it has no
 real value beyond providing the ability to call:
 
     selecta(data).rewind();
